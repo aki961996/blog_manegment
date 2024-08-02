@@ -8,7 +8,7 @@
 <main id="main" class="main">
 
     <div class="pagetitle">
-        <h1>Category</h1>
+        <h1>Blog</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -27,10 +27,10 @@
                     <div class="card-body">
 
                         <h5 class="card-title">
-                            Category List
-                            <a href="{{route('category.create')}}" class="btn btn-primary"
+                            Blog List
+                            <a href="{{route('blog.create')}}" class="btn btn-primary"
                                 style="float: right;margin-top: -12px;">Add New
-                                Category</a>
+                                Blog</a>
                         </h5>
 
                         <!-- Default Table -->
@@ -38,30 +38,44 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Name</th>
+
                                     <th scope="col">Title</th>
+                                    <th scope="col">image</th>
                                     <th scope="col">Description</th>
-                                    <th scope="col">Keywords</th>
+                                    <th scope="col">Tags</th>
+                                    <th scope="col">Publish</th>
+                                    <th scope="col">Author</th>
+                                    <th scope="col">Publish date</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Created at</th>
                                     <th scope="col">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($category as $categories)
+                                @forelse ($blog as $blogs)
                                 <tr>
-                                    <td>{{ $categories->id }}</td>
-                                    <td>{{ $categories->name }}</td> <!-- Added name field to match table header -->
-                                    <td>{{ $categories->title }}</td>
-                                    <td>{{ $categories->description }}</td>
-                                    <td>{{ $categories->keywords }}</td>
-                                    <td>{{ $categories->status }}</td>
-                                    <td>{{ $categories->created_at_formatted }}</td>
+                                    <td>{{ $blogs->id }}</td>
+                                    <td>{{ $blogs->title }}</td> <!-- Added name field to match table header -->
+                                    <td>
+                                        @if ($blogs->image)
+                                        <img src="{{ asset('storage/images/' . $blogs->image) }}" alt="Blog Image"
+                                            width="100">
+                                        @else
+                                        No image
+                                        @endif
+                                    </td>
+                                    <td>{{ $blogs->description }}</td>
+                                    <td>{{ $blogs->tags }}</td>
+                                    <td>{{ $blogs->is_publish }}</td>
+                                    <td>{{ $blogs->author }}</td>
+                                    <td>{{ $blogs->publish_date_formatted }}</td>
+                                    <td>{{ $blogs->status }}</td>
+                                    <td>{{ $blogs->created_at_formatted }}</td>
                                     <!-- Fixed typo from 'crated_at' to 'created_at' -->
-                                    <td><a href="{{route('category.edit', encrypt($categories->id))}}"
+                                    <td><a href="{{route('blog.edit', encrypt($blogs->id))}}"
                                             class="btn btn-primary">Edit</a></td>
                                     <td>
-                                        <form action="{{route('category.destroy', $categories->id )}}" method="POST"
+                                        <form action="{{route('blog.destroy', $blogs->id )}}" method="POST"
                                             style="display:inline-block;">
                                             @csrf
                                             @method('DELETE')
@@ -81,9 +95,9 @@
                     </div>
 
                     <div style="padding: 10px; float:right;">
-                        {!!
+                        {{-- {!!
                         $category->appends(\Illuminate\Support\Facades\Request::except('page'))->links()
-                        !!}
+                        !!} --}}
                     </div>
                 </div>
 

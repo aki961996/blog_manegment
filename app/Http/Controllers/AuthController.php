@@ -58,12 +58,13 @@ class AuthController extends Controller
 
     public function auth_login(Request $request)
     {
+
         $remember = !empty($request->remember) ? 'true' : 'false';
 
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password], $remember)) {
             if (!empty(Auth::user()->email_verified_at)) {
-                echo 'successfully';
-                die;
+                // echo 'successfully';
+                // die;
                 return redirect()->route('dashboard');
             } else {
                 $user = new User();
@@ -88,6 +89,6 @@ class AuthController extends Controller
         $request->session()->invalidate(); // Invalidate the session
         $request->session()->regenerateToken(); // Regenerate CSRF token
 
-        return redirect()->route('login')->with('status', 'Logout Successfully');
+        return redirect()->route('index')->with('status', 'Logout Successfully');
     }
 }

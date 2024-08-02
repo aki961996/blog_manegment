@@ -12,19 +12,26 @@
         </li><!-- End Dashboard Nav -->
 
 
-
+        <li class="nav-item">
+            <a class="nav-link @if(Request::segment(2) == 'user') @else  collapsed @endif"
+                href="{{asset('admin/user/list')}}">
+                <i class="bi bi-person"></i>
+                <span>Users</span>
+            </a>
+        </li>
 
 
         <li class="nav-item">
-            <a class="nav-link @if(Request::segment(2) == 'category') @else  collapsed @endif"" href="
-                {{asset('admin/category')}}">
+            <a class="nav-link @if(Request::segment(2) == 'category') @else  collapsed @endif"
+                href="{{asset('admin/category/list')}}">
                 <i class="bi bi-person"></i>
                 <span>Category</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="">
+            <a class="nav-link @if(Request::segment(2) == 'blog') @else  collapsed @endif"
+                href="{{asset('admin/blog/list')}}">
                 <i class="bi bi-person"></i>
                 <span>Blog</span>
             </a>

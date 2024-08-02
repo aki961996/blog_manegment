@@ -44,4 +44,31 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function getSingle($id)
+    {
+        return self::find($id);
+    }
+
+    static public function getSingleDataId($id)
+    {
+
+        $id = decrypt($id);
+        return User::find($id);
+    }
+
+    static public function getSingleData($id)
+    {
+        $id = decrypt($id);
+        return User::find($id);
+    }
+
+    static public function getRecord()
+    {
+        return User::select('users.*')
+            ->where('user_type', 0)
+            ->where('is_delete', 0)
+            ->orderBy('id', 'desc')
+            ->paginate(10);
+    }
 }

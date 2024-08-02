@@ -41,6 +41,7 @@
                                     <th scope="col">#</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">email</th>
+                                    <th scope="col">Actions</th>
 
                                 </tr>
                             </thead>
@@ -50,7 +51,6 @@
                                     <td>{{$users->firstItem() + $loop->index}}</td>
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->email}}</td>
-
                                     <td><a href="{{route('users.edit', encrypt($user->id))}}"
                                             class="btn btn-primary">Edit</a>
                                     </td>

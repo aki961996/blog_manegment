@@ -64,4 +64,9 @@ class Blog extends Model
             ->orderBy('id', 'desc')
             ->paginate(10);
     }
+
+    static public function getSingleData($id)
+    {
+        return Blog::find($id);
+    }
 }

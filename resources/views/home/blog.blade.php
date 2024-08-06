@@ -27,8 +27,8 @@
                                 </div>
                                 <div class="form-group col-sm-3">
                                     <label for="exampleInputEmail1">Title</label>
-                                    <input type="text" name="email" value="{{Request::get('title')}}"
-                                        class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                    <input type="text" name="title" value="{{Request::get('title')}}"
+                                        class="form-control" id="exampleInputEmail1" placeholder="Enter title">
 
 
                                 </div>
@@ -39,8 +39,7 @@
                                         <option value="">Select Category</option>
                                         @foreach ($categories as $category)
                                         <option value="{{ $category->id }}" {{ request()->get('category') ==
-                                            $category->id ?
-                                            'selected' : '' }}>
+                                            $category->id ? 'selected' : '' }}>
                                             {{ $category->name }}
                                         </option>
                                         @endforeach
@@ -54,9 +53,9 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <button class="btn btn-primary" type="submit" style="margin-top: 30px">Search</button>
                                 <a href="{{route('blog')}}" class="btn btn-success" style="margin-top: 30px">Reset</a>
 
-                                <button class="btn btn-primary" type="submit" style="margin-top: 30px">Search</button>
                             </div>
                         </div>
                     </div>

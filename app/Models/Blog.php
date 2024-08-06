@@ -30,10 +30,6 @@ class Blog extends Model
     protected $table  = 'blogs';
 
 
-
-
-
-
     public static function getFrontRecord()
     {
         $return = Blog::select('blogs.*', 'users.name as user_name', 'categories.name as categories_name')
@@ -43,11 +39,13 @@ class Blog extends Model
             ->where('blogs.status', 0)
             ->where('blogs.is_delete', 0);
 
-        // Apply filters
+        // Apply filters //search
         $title = request()->get('title');
         $author = request()->get('author');
         $date = request()->get('date');
         $category = request()->get('category');
+
+
         if (!empty($title)) {
             $return = $return->where('title', 'like', '%' . $title . '%');
         } elseif (!empty($author)) {
@@ -58,17 +56,13 @@ class Blog extends Model
         if (!empty($category)) {
             $return = $return->where('blogs.category_id', $category);
         }
+        //search end
 
         // Order by and paginate
         $return = $return->orderBy('blogs.id', 'desc')->paginate(6);
 
         return $return;
     }
-
-
-
-
-
 
     //acceser
     public function getStatusAttribute()
@@ -102,7 +96,9 @@ class Blog extends Model
     static public function getRecord()
     {
         $return = Blog::select('*')
-            ->where('is_delete', '=', 0);
+            ->where('is_delete', '=', 0)
+            ->where('status', 0)
+            ->where('is_publish', 1);
 
         //search
         $title = request()->get('title');
@@ -117,7 +113,7 @@ class Blog extends Model
         }
         //search
 
-        $return = $return->orderBy('id', 'desc')->paginate(10);
+        $return = $return->orderBy('blogs.id', 'desc')->paginate(10);
 
         return $return;
     }

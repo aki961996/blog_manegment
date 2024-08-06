@@ -20,7 +20,7 @@
                     <div class="card-body bg-light text-center p-4">
                         <h4 class="">{{$blog->title}}</h4>
                         <h3 class="">Author:{{$blog->author}}</h3>
-
+                        <h4 class="">Catgeory:{{$blog->category->name}}</h4>
                         <p class="section-title px-5">
                             <span class="px-2">{{$blog->publish_date_formatted}}</span>
                         </p>

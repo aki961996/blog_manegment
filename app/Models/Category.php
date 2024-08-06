@@ -25,6 +25,8 @@ class Category extends Model
         return $this->created_at->format('d/m/Y H:i');
     }
 
+    //Defining it as static allows it to be called without an instance of the Category model.
+
     //get student all data
     static public function getRecord()
     {
@@ -37,5 +39,18 @@ class Category extends Model
     static public function getSingleData($id)
     {
         return Category::find($id);
+    }
+
+    static public function getCategoryMenu()
+    {
+        return Category::select('categories.*')
+            ->where('is_delete', 0)
+            ->where('status', 0)
+            ->get();
+    }
+
+    public function blogs()
+    {
+        return $this->hasMany(Blog::class);
     }
 }

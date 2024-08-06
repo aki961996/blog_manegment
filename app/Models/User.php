@@ -71,4 +71,15 @@ class User extends Authenticatable
             ->orderBy('id', 'desc')
             ->paginate(10);
     }
+
+
+    public function blogs()
+    {
+        return $this->hasMany(Blog::class);
+    }
+
+    public function getCreatedAtFormattedAttribute()
+    {
+        return $this->created_at->format('d/m/Y H:i');
+    }
 }

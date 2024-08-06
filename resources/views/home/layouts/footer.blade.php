@@ -1,11 +1,11 @@
 <!-- Footer Start -->
-<div class="container-fluid bg-secondary text-white mt-5 py-5 px-sm-3 px-md-5">
+<div class="container-fluid bg-secondary text-white mt-0 py-5 px-sm-3 px-md-5">
     <div class="row pt-5">
         <div class="col-lg-3 col-md-6 mb-5">
             <a href="" class="navbar-brand font-weight-bold text-primary m-0 mb-4 p-0"
                 style="font-size: 40px; line-height: 40px">
                 <i class="flaticon-043-teddy-bear"></i>
-                <span class="text-white">KidKinder</span>
+                <span class="text-white">Blog</span>
             </a>
             <p>
                 Labore dolor amet ipsum ea, erat sit ipsum duo eos. Volup amet ea

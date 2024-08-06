@@ -17,6 +17,62 @@
         </nav>
     </div><!-- End Page Title -->
 
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">
+                Search Blog List
+
+
+            </div>
+        </div>
+
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form action="" method="get">
+
+
+            <div class="card-body">
+                <div class="row">
+
+
+                    <div class="form-group col-sm-3">
+                        <label for="">Author</label>
+                        <input type="text" name="author" value="{{Request::get('author')}}" class="form-control" id=""
+                            placeholder="Enter Author">
+
+
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <label for="exampleInputEmail1">Title</label>
+                        <input type="text" name="email" value="{{Request::get('title')}}" class="form-control"
+                            id="exampleInputEmail1" placeholder="Enter email">
+
+
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <label for="exampleInputEmail1">Date</label>
+                        <input type="date" name="date" value="{{Request::get('publish_date')}}" class="form-control"
+                            id="" placeholder="Enter date">
+
+                    </div>
+
+                    <div class="form-group col-sm-3">
+
+                        <button class="btn btn-primary" type="submit" style="margin-top: 30px">Search</button>
+
+                        <a href="{{route('blog.list')}}" class="btn btn-success" style="margin-top: 30px">Reset</a>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <!-- /.card-body -->
+
+
+        </form>
+    </div>
+
     @include('msg')
 
     <section class="section">

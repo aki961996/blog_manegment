@@ -22,6 +22,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('index');
+    Route::get('/blog', 'blog')->name('blog');
+    Route::get('/blog/{id}',  'show')->name('blog_detail');
+
+    // Route::get('category/{id}', 'filterByCategory')->name('category.filter');
 });
 
 
@@ -64,8 +68,8 @@ Route::group(['middleware' => 'adminuser'], function () {
     //blog api
     Route::get('admin/blog/list', [BlogController::class, 'index'])->name('blog.list');
     Route::get('admin/blog/add', [BlogController::class, 'create'])->name('blog.create');
-     Route::post('admin/blog/add', [BlogController::class, 'store'])->name('blog.store');
-     Route::get('admin/blog/edit/{id}', [BlogController::class, 'edit'])->name('blog.edit');
-     Route::post('admin/blog/update', [BlogController::class, 'update'])->name('blog.update');
-     Route::delete('admin/blog/delete/{id}', [BlogController::class, 'destroy'])->name('blog.destroy');
+    Route::post('admin/blog/add', [BlogController::class, 'store'])->name('blog.store');
+    Route::get('admin/blog/edit/{id}', [BlogController::class, 'edit'])->name('blog.edit');
+    Route::post('admin/blog/update', [BlogController::class, 'update'])->name('blog.update');
+    Route::delete('admin/blog/delete/{id}', [BlogController::class, 'destroy'])->name('blog.destroy');
 });

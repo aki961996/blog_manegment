@@ -18,7 +18,7 @@ A Laravel-based blog management system with category-based filtering and Mail fu
 
    ```sh
    git clone https://github.com/aki961996/blog_manegment.git
-   cd blog-management
+   cd blog_management
 
    .env file and set up your environment variables:cp .env.example .env
 

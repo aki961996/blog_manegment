@@ -1,6 +1,6 @@
 # Blog Management System
 
-A Laravel-based blog management system with category-based filtering, user authentication, and CRUD operations.
+A Laravel-based blog management system with category-based filtering and Mail functions, user authentication, and CRUD operations .
 
 ## Table of Contents
 

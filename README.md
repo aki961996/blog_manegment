@@ -26,10 +26,9 @@ A Laravel-based blog management system with category-based filtering and Mail fu
    
    Run migrations and seed the database: php artisan migrate
 
-    seed the database : php artisan db:seed --class=UserSeeder
-    seed the database : php artisan db:seed --class=CategorySeeder
+   seed the database : php artisan db:seed --class=UserSeeder
+   seed the database : php artisan db:seed --class=CategorySeeder
 
-
-    php artisan serve
+   php artisan serve
 
    

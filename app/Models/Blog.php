@@ -45,9 +45,9 @@ class Blog extends Model
         $date = request()->get('date');
         $category = request()->get('category');
 
-
+        //search start
         if (!empty($title)) {
-            $return = $return->where('title', 'like', '%' . $title . '%');
+            $return = $return->where('blogs.title', 'like', '%' . $title . '%');
         } elseif (!empty($author)) {
             $return = $return->where('author', 'like', '%' . $author . '%');
         } elseif (!empty($date)) {

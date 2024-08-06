@@ -25,9 +25,7 @@ class HomeController extends Controller
         foreach ($blogs as $blog) {
             $blog->short_description = strip_tags(Str::limit($blog->description, 170));
         }
-
         $categories = Category::getCategoryMenu();
-
         return view('home.blog', ['blogs' => $blogs, 'categories' => $categories]);
     }
     public function show(Request $request, $id)

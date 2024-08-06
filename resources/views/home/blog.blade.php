@@ -28,9 +28,7 @@
                                 <div class="form-group col-sm-3">
                                     <label for="exampleInputEmail1">Title</label>
                                     <input type="text" name="title" value="{{Request::get('title')}}"
-                                        class="form-control" id="exampleInputEmail1" placeholder="Enter title">
-
-
+                                        class="form-control" id="" placeholder="Enter title">
                                 </div>
 
                                 <div class="form-group col-sm-3">

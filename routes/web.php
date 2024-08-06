@@ -25,7 +25,9 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/blog', 'blog')->name('blog');
     Route::get('/blog/{id}',  'show')->name('blog_detail');
 
-    // Route::get('category/{id}', 'filterByCategory')->name('category.filter');
+    Route::get('category/{id}', 'filterByCategory')->name('category.filter');
+
+    
 });
 
 

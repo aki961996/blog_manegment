@@ -10,17 +10,33 @@
         </button>
         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
 
-            <div class="navbar-nav font-weight-bold mx-auto py-0">
+            {{-- <div class="navbar-nav font-weight-bold mx-auto py-0">
                 <a href="{{ url('/') }}" class="nav-item nav-link active">Home</a>
                 @foreach ($categories as $categoryHeader)
                 <a href="" class="nav-item nav-link">{{ $categoryHeader->name }}</a>
                 @endforeach
-                <a href="{{ route('blog') }}" class="nav-item nav-link">Blog</a>
+                <a href="{{ route('blog') }}" class="nav-item nav-link">Blogs</a>
+
+            </div> --}}
+
+            <div class="navbar-nav font-weight-bold mx-auto py-0">
+                <a href="{{ url('/') }}" class="nav-item nav-link active">Home</a>
+                <a href="{{ route('blog') }}" class="nav-item nav-link">Blogs</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Categories
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        @foreach ($categories as $categoryHeader)
+                        <a class="dropdown-item" href="{{ route('category.filter', encrypt($categoryHeader->id)) }}">
+                            {{ $categoryHeader->name }}
+                        </a>
+                        @endforeach
+                    </div>
+                </div>
 
             </div>
-          
-
-          
 
 
             <div class="py-0">

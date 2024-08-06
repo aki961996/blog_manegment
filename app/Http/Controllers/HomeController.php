@@ -51,12 +51,19 @@ class HomeController extends Controller
 
         $categories = Category::getCategoryMenu();
 
-        
+
         return view('home.blog_detail', [
             'categories' => $categories,
             'blog' => $blog,
         ]);
     }
 
-   
+    public function filterByCategory($id)
+    {
+        $id = decrypt($id);
+        $blogs = Blog::where('category_id', $id)->paginate(10);
+
+        $categories = Category::getCategoryMenu();
+        return view('home.categoryVise', ['blogs' => $blogs,  'categories' => $categories,]);
+    }
 }

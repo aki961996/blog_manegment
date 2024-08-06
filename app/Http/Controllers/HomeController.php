@@ -62,8 +62,7 @@ class HomeController extends Controller
     {
         $id = decrypt($id);
         $blogs = Blog::where('category_id', $id)->paginate(10);
-
         $categories = Category::getCategoryMenu();
-        return view('home.categoryVise', ['blogs' => $blogs,  'categories' => $categories,]);
+        return view('home.categoryVise', ['blogs' => $blogs,  'categories' => $categories]);
     }
 }

@@ -110,7 +110,7 @@
                             <tbody>
                                 @forelse ($blog as $blogs)
                                 <tr>
-                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $loop->iteration}}</td>
                                     <td>{{ $blogs->title }}</td> <!-- Added name field to match table header -->
                                     <td>
                                         @if ($blogs->image)
